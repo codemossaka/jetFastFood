@@ -20,7 +20,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             FastFoodTheme {
                 Surface(modifier = Modifier.fillMaxSize()) {
-                    Text(text = ".dd")
+                    Text(text = "")
                     val navController = rememberNavController()
                     FastFoodNavigation(navController = navController)
                 }

@@ -4,6 +4,10 @@ import androidx.compose.animation.core.tween
 import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.*
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.GridItemSpan
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.material.*
@@ -18,7 +22,6 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.withStyle
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
@@ -97,12 +100,13 @@ fun HomeScreen(navController: NavHostController) {
                     }
                 }
 
-                LazyVerticalGrid(cells = GridCells.Adaptive(128.dp), content = {
+                LazyVerticalGrid(columns = GridCells.Adaptive(128.dp), content = {
 
 
                     item(span = { GridItemSpan(2) }) {
                         Text(text = data[0].name)
                     }
+
                     items(data[0].products) { product ->
                         ProductCard(product = product,
                             modifier = Modifier.animateItemPlacement(tween(durationMillis = 250)))
